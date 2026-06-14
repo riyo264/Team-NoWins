@@ -373,7 +373,7 @@ Team-NoWins/
 
 | Layer | Technology |
 |-------|-----------|
-| **Frontend** | React 19 · Vite 8 · React Router · plain CSS |
+| **Frontend** | React 19 · Vite 8 · React Router · TailwindCSS 4 · lucide-react |
 | **Backend** | Python 3.11+ · FastAPI · Uvicorn · Pydantic v2 |
 | **Database** | Amazon DynamoDB (DynamoDB Local / `moto` for dev) |
 | **LLM — primary** | AWS Bedrock — Nvidia Nemotron Super 3 120B |
@@ -410,8 +410,10 @@ DYNAMODB_ENDPOINT_URL=http://localhost:8100
 And `frontend/.env`:
 
 ```bash
-VITE_API_BASE=http://localhost:8000
-VITE_SAFETY_API_BASE=http://localhost:8006
+VITE_API_BASE_URL=http://localhost:8000        # gateway (mood, devices, history)
+VITE_WS_URL=ws://localhost:8000/alexa/stream   # live orchestrator stream
+VITE_PATTERNS_API_BASE=http://localhost:8003   # pattern recognition service
+VITE_SAFETY_API_BASE=http://localhost:8006     # adaptive safety service
 ```
 
 ### Option A — Docker (everything at once)
