@@ -40,12 +40,16 @@
 
 ### The Problem
 
-A "smart home" today is just a collection of **dumb switches with an app**. It does exactly what you tell it, nothing more. It has no idea:
+A "smart home" today is just a collection of connected devices controlled through an app. It follows commands, but it doesn't truly understand what's happening inside the home.
 
-- 😟 …that you came home **stressed** and the bright white lights are making it worse.
-- 🔥 …that the **gas stove** has been on for 45 minutes when it usually runs for 15.
-- 👵 …that **Grandma** or **elderly parent**, living alone, unaware of her health conditons and medicines.
-- 💡 …that **son** who rushed out and left the **room's fan** running all day.
+It doesn't realize when:
+
+* 😟 You come home after a stressful day and the bright white lights make the environment even more uncomfortable.
+* 🔥 The gas stove has been running for 45 minutes when it normally runs for only 15.
+* 👵 An elderly parent living alone may have missed their medication or needs assistance.
+* 💡 Your son rushed out in the morning and accidentally left the fan running in an empty room all day.
+
+The home is connected, but it isn't aware.
 
 In a country of **joint families**, elderly parents living independently, children coming from school to home alone, working couples, domestic help on schedules, a home that *cannot notice* is a home that *cannot care*.
 
@@ -211,7 +215,7 @@ flowchart TB
 
 ### Confidence — explainable by design
 
-$$\text{confidence} = \underbrace{\min\left(1, \frac{\text{occurrences}}{\text{window\days}}\right)}_{\text{support}} \times \underbrace{\left(1 - \frac{\text{stddev}}{2 \times \text{tolerance}}\right)}_{\text{consistency}}$$
+$$\text{confidence} = \underbrace{\min\left(1, \frac{\text{occurrences}}{\text{windowdays}}\right)}_{\text{support}} \times \underbrace{\left(1 - \frac{\text{stddev}}{2 \times \text{tolerance}}\right)}_{\text{consistency}}$$
 
 A pattern is kept only if it occurs **≥ 3 times** *and* scores **≥ 0.6**. No randomness, fully reproducible.
 
