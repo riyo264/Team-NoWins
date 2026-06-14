@@ -64,7 +64,7 @@ In a country of **joint families**, elderly parents living independently, childr
 | **How you live** 📊 | learning device routines deterministically over 30 days | notice when something is *off* — left on, missed, or running too long |
 | **Who you love** 🛡️ | layering a vulnerability lens over every anomaly | escalate a small risk into an urgent alert when a vulnerable person is alone |
 
-> **The core philosophy:** the system *discovers what is true* **deterministically** (statisticstically), and only uses an **LLM to phrase it** in natural, caring language. The AI never decides reality, it only narrates it.
+> **The core philosophy:** the system *discovers what is true* **deterministically** (statistically), and only uses an **LLM to phrase it** in natural, caring language. The AI never decides reality, it only narrates it.
 
 ---
 
@@ -405,9 +405,7 @@ Starts at **100**, deducts per escalated anomaly → `low −4` · `medium −12
 
 ## 🏛️ Architecture
 
-Awaas AI is a **microservices** platform. In production it runs as an
-auto-scaling fleet on AWS; locally it runs as the same services behind a FastAPI
-gateway. Both views are shown below.
+Awaas AI is a **microservices** platform — 7 independently deployable FastAPI services communicating over HTTP, backed by DynamoDB for persistence and dual LLM providers (Bedrock + Groq) for reasoning. In production it deploys as an EC2 Auto Scaling Group behind an Application Load Balancer with Cognito-based auth and API Gateway rate limiting. Locally, the identical services run inside Docker Compose with a FastAPI gateway replicating ALB path-routing — so the code you develop against is the exact code that ships. Both topologies are shown below.
 
 ### Production architecture (AWS)
 
